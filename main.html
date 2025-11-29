@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>This is solely to you, mine ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: radial-gradient(circle at top left, #ffdde1, #ee9ca7, #6a85b6);
+      color: #1f2933;
+    }
+
+    .card {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      padding: 24px 22px 26px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 32px 36px 38px;
+      }
+    }
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .title span.heart {
+      font-size: 1.9rem;
+      animation: pulse 1.4s infinite;
+      transform-origin: center;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+
+    .hint-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .hint-emoji {
+      font-size: 1.2rem;
+      margin-top: 1px;
+    }
+
+    .hint-text strong {
+      font-weight: 600;
+    }
+
+    .actions {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .reveal-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      color: #36142b;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.15s ease;
+    }
+
+    .reveal-btn span.heart-icon {
+      font-size: 1.15rem;
+    }
+
+    .reveal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.18);
+    }
+
+    .reveal-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.16);
+    }
+
+    .tiny-note {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .pdf-container {
+      margin-top: 22px;
+      border-radius: 18px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .pdf-container.visible {
+      max-height: 90vh;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pdf-header {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to right, #ffeef2, #fff7fb);
+    }
+
+    .pdf-header span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pdf-header .tag {
+      font-size: 0.7rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255, 192, 203, 0.3);
+    }
+
+    .pdf-frame-wrapper {
+      width: 100%;
+      height: 65vh;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .fallback-link {
+      padding: 10px 14px 14px;
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
+      background: #fffdfd;
+    }
+
+    .fallback-link a {
+      color: #e11d48;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .fallback-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <header>
+      <div class="title">
+        This is solely to you, mine
+        <span class="heart">❤️</span>
+      </div>
+      <p class="subtitle">
+        <h3>Na idha kai aala eluthala di!!...</h3> 
+        <br>
+        <h3>Edho oru feeling la eluthitten...</h3>
+      </p>
+
+      <div class="hint-box">
+        <div class="hint-emoji">💌</div>
+        <div class="hint-text">
+          <strong>Hint:</strong> This isn’t just <em>love</em> and it’s not just <em>friendship</em>…  
+          it’s <em>“something more than that which cannot be defined by a name”</em>.<br> 
+          Enakku oru per vacha but inum enakku adhukku meaning theriyadhu+en birthday+unakku nan oru name vachen+un birthday + oru 2 characters irukkum (adha indha page la broad aa kuduthurukken!!)
+          When you’re ready to know what I mean, tap the heart below.
+        </div>
+      </div>
+    </header>
+
+    <section class="actions">
+      <button class="reveal-btn" id="revealButton">
+        <span class="heart-icon">💖</span>
+        Reveal what I wrote for you
+      </button>
+      <span class="tiny-note">
+        (Only because it’s you.)
+      </span>
+    </section>
+
+    <section class="pdf-container" id="pdfContainer">
+      <div class="pdf-header">
+        <span>📄 This is solely to you, mine ❤️</span>
+        <span class="tag">For your eyes only</span>
+      </div>
+      <div class="pdf-frame-wrapper">
+        <!-- Make sure `aesthetic_letter.pdf` is in the same folder as this HTML file -->
+        <iframe
+          class="pdf-frame"
+          src="For_my_Girl.pdf"
+        ></iframe>
+      </div>
+      <div class="fallback-link">
+        If the letter doesn’t load,  
+        <a href="For_my_Girl.pdf" target="_blank" rel="noopener">tap here to open it in a new tab</a>.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const revealButton = document.getElementById("revealButton");
+    const pdfContainer = document.getElementById("pdfContainer");
+
+    revealButton.addEventListener("click", () => {
+      pdfContainer.classList.add("visible");
+      // Smooth scroll to the PDF after it appears
+      setTimeout(() => {
+        pdfContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 280);
+    });
+  </script>
+</body>
+</html>
